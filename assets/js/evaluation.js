@@ -15,7 +15,7 @@ async function generateText(prompt) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer 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',
+      'Authorization': 'Bearer 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',
     },
     body: data,
   });
