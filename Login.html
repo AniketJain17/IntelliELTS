@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Login SignUp</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/loginStyle.css">
+	<link rel="stylesheet" href="assets/css/navbar.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+
+</head>
+
+<body>
+	<!--Navigation bar-->
+	<div id="nav-placeholder">
+
+	</div>
+
+
+
+	<div class="form-box">
+		<div class="button-box">
+			<div id="btn"></div>
+			<button class="toggle-btn" id="log" onclick="login()" style="color: #fff;">Log In</button>
+			<button class="toggle-btn" id="reg" onclick="register()">Register</button>
+		</div>
+		<div class="social-icons">
+			<img src="assets/images/icon/fb2.png">
+			<img src="assets/images/icon/insta2.png">
+			<img src="assets/images/icon/tt2.png">
+		</div>
+
+		<!-- Login Form -->
+		<form id="login" class="input-group">
+			<div class="inp">
+				<img src="assets/images/icon/user.png"><input type="text" id="EmailName1" class="input-field"
+					placeholder="Username or Phone Number" style="width: 88%; border:none;" required="required">
+			</div>
+			<div class="inp">
+				<img src="assets/images/icon/password.png"><input type="password" id="PasswordName1" class="input-field"
+					placeholder="Password" style="width: 88%; border: none;" required="required">
+			</div>
+			<input type="checkbox" class="check-box">Remember Password
+			<button id="signin" class="submit-btn">Log In</button>
+		</form>
+
+
+		<div class="other" id="other">
+			<div class="instead">
+				<h3>or</h3>
+			</div>
+			<button  class="connect" >
+				<img src="assets/images/icon/google.png">
+				<span id="customBtn112">Sign in with Google</span>
+			</button>
+		</div>
+
+		<!-- Registration Form -->
+		<form id="register" class="input-group">
+			<input id="FullName" type="text" class="input-field" placeholder="Full Name" required="required">
+			<input id="EmailName" type="email" class="input-field" placeholder="Email Address" required="required">
+			<input id="PasswordName" type="password" class="input-field" placeholder="Create Password" name="psame"
+				required="required">
+			<input type="password" class="input-field" placeholder="Confirm Password" name="psame" required="required">
+			<!-- <input  type="checkbox" class="check-box" id="chkAgree" onclick="goFurther()">I agree to the Terms &Conditions -->
+			<button id="signup" class="submit-btn reg-btn">Register</button>
+		</form>
+	</div>
+	<!-- footer area -->
+	<footer class="footer-container">
+		<div class="copyright">
+			<p> Contact Us </p>
+			<p> 0000000000 </p>
+			<p> Admin@gmail.com </p>
+		</div>
+	</footer>
+	<script>
+		$(function () {
+			$("#nav-placeholder").load("navbar.html");
+		});
+	</script>
+	<!--end of Navigation bar-->
+    
+	<script>
+		var googleUser = {};
+
+		document.getElementById('customBtn112').addEventListener("click",function(){
+			gapi.load('auth2', function () {
+                // Retrieve the singleton for the GoogleAuth library and set up the client.
+                auth2 = gapi.auth2.init({
+                    client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
+                    cookiepolicy: 'single_host_origin',
+                    // Request scopes in addition to 'profile' and 'email'
+                    //scope: 'additional_scope'
+                });
+                attachSignin(document.getElementById('customBtn112'));
+            });
+		})
+        
+        function attachSignin(element) {
+            console.log(element.id);
+            auth2.attachClickHandler(element, {},
+                function (googleUser) {
+                    document.getElementById('name').innerText = "Signed in: " +
+                        googleUser.getBasicProfile().getName();
+                }, function (error) {
+                    alert(JSON.stringify(error, undefined, 2));
+                });
+        }
+    </script>
+</body>
+<script></script>
+<script src="assets/js/core.min.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
+<script>
+	//  <script type="module">
+	// 	// Import the functions you need from the SDKs you need
+	// 	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+	// 	import { getAuth } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+	// 	import { getDatabase } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+
+	// const firebaseConfig = {
+	//     apiKey: "AIzaSyCt29QUSEDj_8VHRQTH6_6it4e9avuGPTQ",
+	//     authDomain: "intellielts-42242.firebaseapp.com",
+	//     projectId: "intellielts-42242",
+	//     storageBucket: "intellielts-42242.appspot.com",
+	//     messagingSenderId: "251810709665",
+	//     appId: "1:251810709665:web:8c2c5b4df7141020c7f0e0"
+	//   };
+	//  // Initialize Firebase
+	// const app = initializeApp(firebaseConfig);
+	//   // Initialize Firebase Authentication and get a reference to the service
+	// const auth = getAuth(app);
+
+	// // Initialize Realtime Database and get a reference to the service
+	// const database = getDatabase(app);
+
+	//   document.getElementById('signup').addEventListener("click",function(){
+	// 	email = document.getElementById('EmailName').value
+	//     password = document.getElementById('PasswordName').value
+	//     full_name = document.getElementById('FullName').value
+	// 	console.log(email);
+	// 	console.log(password);
+	// 	console.log(full_name);
+	// 	alert(email,password,full_name) 
+	// 	// Move on with Auth
+	//     auth.createUserWithEmailAndPassword(email, password)
+	//     .then(function() {
+	//       // Declare user variable
+	//       var user = auth.currentUser;
+
+	//       // Add this user to Firebase Database
+	//       var database_ref = database.ref();
+
+	//       // Create User data
+	//       var user_data = {
+	//         email : email,
+	//         full_name : full_name,
+	//         last_login : Date.now()
+	//       }
+
+	//       // Push to Firebase Database
+	//       database_ref.child('users/' + user.uid).set(user_data);
+
+	//       // DOne
+	//       alert('User Created!!')
+	//     })
+	//     .catch(function(error) {
+	//       // Firebase will use this to alert of its errors
+	//       var error_code = error.code
+	//       var error_message = error.message
+	//       alert(error_message)
+	//     })
+
+	//   })
+
+
+	document.getElementById('signin').addEventListener("click", function () {
+		email = document.getElementById('EmailName1').value;
+		password = document.getElementById('PasswordName1').value;
+		if (email == "Aniket11" && password == "admin1122") {
+			console.log(email);
+			window.location.href = "./Writing.html";
+			alert("Login Successful")
+		}
+		else {
+			alert("Wrong Id or Password")
+		}
+
+		// auth.signInWithEmailAndPassword(email, password)
+		// .then(function() {
+		//   // Declare user variable
+		//   var user = auth.currentUser;
+
+		//   // Add this user to Firebase Database
+		//   var database_ref = database.ref();
+
+		//   // Create User data
+		//   var user_data = {
+		//     last_login : Date.now()
+		//   }
+
+		//   // Push to Firebase Database
+		//   database_ref.child('users/' + user.uid).update(user_data)
+
+		//   // DOne
+		//   alert('User Logged In!!')
+
+		// })
+		// .catch(function(error) {
+		//   // Firebase will use this to alert of its errors
+		//   var error_code = error.code
+		//   var error_message = error.message
+
+		//   alert(error_message)
+		// })
+	})
+
+
+
+
+
+</script>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script type="module">
+	// Import the functions you need from the SDKs you need
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+	// TODO: Add SDKs for Firebase products that you want to use
+	// https://firebase.google.com/docs/web/setup#available-libraries
+  
+	// Your web app's Firebase configuration
+	const firebaseConfig = {
+	  apiKey: "AIzaSyCt29QUSEDj_8VHRQTH6_6it4e9avuGPTQ",
+	  authDomain: "intellielts-42242.firebaseapp.com",
+	  projectId: "intellielts-42242",
+	  storageBucket: "intellielts-42242.appspot.com",
+	  messagingSenderId: "251810709665",
+	  appId: "1:251810709665:web:8c2c5b4df7141020c7f0e0"
+	};
+  
+	// Initialize Firebase
+	const app = initializeApp(firebaseConfig);
+  </script> -->

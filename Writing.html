@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
+    <title class="jsx-2422859872">Writing</title>
+    <link rel="stylesheet" href="assets/css/WritingStyle.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+<style>
+    #loader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        z-index: 9999;
+        display: none;
+    }
+
+    #loader {
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid #3498db;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -60px;
+        margin-left: -60px;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<body>
+    <div id="__next">
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
+
+        </div>
+
+
+
+        <section>
+            <div class="jsx-2422859872 root">
+                <div class="jsx-651692791 page-draft step0">
+                    <div class="jsx-651692791 page-draft__editor">
+                        <p style="margin-bottom:30px" class="jsx-651692791">
+                        <h2 as="h2" class="jsx-3519272163 h3"> Evaluate Questions</h2>
+                        </p>
+                        <div class="jsx-1679527968 root">
+                            <div class="jsx-1679527968 description"><span class="jsx-2592671876 t16">
+                                    <input type="text" class="jsx-16795" id="questionField"
+                                        placeholder="random question Here....">
+                                </span></div>
+                        </div>
+                        <div class="jsx-2381572199 draft-editor">
+                            <div class="jsx-2381572199 draft-editor__task">
+                                <div class="jsx-2381572199 draft-editon__question-help"><button
+                                        class="jsx-1740485024 button button_size_mini button_theme_blue  with-radius">
+                                        <div class="jsx-1740485024 button__text"><span id="generateQuestionButton"
+                                                class="jsx-1740485024">Get a
+                                                random
+                                                question</span></div>
+                                    </button></div><span class="jsx-3594441866 h4 ">
+
+                                </span>
+                            </div>
+                            <div class="jsx-2381572199 draft-editor__essay"><span class="jsx-242105113 t18 ">
+                                <textarea placeholder="Write Your Answer......" id="answer" maxword="150" style="
+                                margin-top: 20px;
+                                width: 100%;
+                                height: 300px;
+                                box-shadow: inset 0 0 5px rgba(187, 187, 187, 0.984);
+                                border: 1px solid rgba(0,0,0,0.2);
+                                border-radius: 5px;
+                                outline: none;
+                                color: #2E3D49;
+                                font-size: 25px;
+                                font-weight: 600;
+                                padding: 15px;"></textarea>
+                                </span></div>
+                        </div>
+                        <button id="AnalyseTheEssay" class="custom-btn btn-4 analyse">Analyse</button>
+                    </div>
+                    <div class="jsx-651692791 page-draft__bands">
+                        <div class="jsx-651692791 page-draft__main-buttons">
+                            <div class="jsx-651692791 check-essay">
+
+                            <div class="jsx-651692791 start-timer"><button style="margin-top:10px;width:100%"
+                                    class="jsx-1740485024 button button_size_default button_theme_white  with-radius">
+                                    <div class="jsx-1740485024 button__icon "><svg fill="#111"
+                                            xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+                                            width="24">
+                                            <path d="M0 0h24v24H0z" fill="none"></path>
+                                            <path
+                                                d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0 0 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9a8.994 8.994 0 0 0 7.03-14.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z">
+                                            </path>
+                                        </svg></div>
+                                    <div class="jsx-1740485024 button__text"><span id="startBtn"
+                                            class="jsx-1740485024">
+                                            Timer :</span>
+                                    </div>
+                                </button></div>
+                        </div>
+                        <h1 class="jsx-651692791 page-draft__header"></h1>
+                        <div class="jsx-2802957637 page-draft-text-analyzer ">
+                            <div
+                                class="jsx-2802957637 page-draft-text-analyzer__section-container page-draft-text-analyzer__stats">
+                                <div id="answer-paragraph-count" class="jsx-2802957637"><span class="jsx-2802957637"></span> paragraphs</div>
+                                <div id="answer-word-count" class="jsx-2802957637"><span class="jsx-2802957637"></span> words </div>
+                            </div>
+                            <div class="jsx-2802957637 page-draft-text-analyzer__section-container">
+                                <div class="jsx-2802957637 page-draft-text-analyzer__band">
+                                    <div class="jsx-1158358597 container">
+                                        <h1 style="font-weight:bold" class="jsx-3540034605 h1 ">
+                                            <div id="scoreDiv" class="jsx-1994432408 root">0.00</div>
+                                        </h1>
+                                        <p class="jsx-1158358597 container__text">Overall Band Score</p><span
+                                            color="#AAAAAA" class="jsx-2419732110 caps"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="jsx-2802957637 page-draft-text-analyzer__section-container">
+                                <h3 class="jsx-2802957637 page-draft-text-analyzer__section"><span
+                                        id="CoherenceCohesion" class="jsx-2601907021 caps">Coherence and Cohesion:
+                                        <!-- -->?</span></h3>
+                                <div class="jsx-2802957637 page-draft-text-analyzer__row">
+                                    <div class="jsx-3372755461 circle circle_color_none">?</div>Structure your answers
+                                    in
+                                    logical paragraphs
+                                </div>
+                                <div class="jsx-2802957637 page-draft-text-analyzer__row">
+                                    <div class="jsx-3372755461 circle circle_color_none">?</div>Use cohesive linking
+                                    words
+                                    accurately and appropriately
+                                </div>
+                                <div class="jsx-2802957637 page-draft-text-analyzer__row">
+                                    <div class="jsx-3372755461 circle circle_color_none">?</div>Vary your linking
+                                    phrases
+                                    using synonyms
+                                </div>
+                            </div>
+                            <div class="jsx-2802957637 page-draft-text-analyzer__section-container">
+                                <h3 class="jsx-2802957637 page-draft-text-analyzer__section"><span id="IdeasScore"
+                                        class="jsx-2601907021 caps">Ideas score: <!-- -->?</span></h3>
+                                <div class="jsx-2802957637 page-draft-text-analyzer__row">
+                                    <div class="jsx-3372755461 circle circle_color_none">?</div>Answer all parts of the
+                                    question
+                                </div>
+                                <div class="jsx-2802957637 page-draft-text-analyzer__row">
+                                    <div class="jsx-3372755461 circle circle_color_none">?</div>Word count
+                                </div>
+                            </div>
+
+                            <div class="jsx-2802957637 page-draft-text-analyzer__section-container">
+                                <h3 class="jsx-2802957637 page-draft-text-analyzer__section"><span id="LexicalResource"
+                                        class="jsx-2601907021 caps">Lexical resource: <!-- -->?</span></h3>
+                                <div class="jsx-2802957637 page-draft-text-analyzer__row">
+                                    <div class="jsx-3372755461 circle circle_color_none">?</div>Try to vary your
+                                    vocabulary
+                                    using accurate synonyms
+                                </div>
+                                <div class="jsx-2802957637 page-draft-text-analyzer__row">
+                                    <div class="jsx-3372755461 circle circle_color_none">?</div>Check your work for
+                                    spelling
+                                    and word formation mistakes
+                                </div>
+                            </div>
+                            <div class="jsx-2802957637 page-draft-text-analyzer__section-container">
+                                <h3 class="jsx-2802957637 page-draft-text-analyzer__section"><span
+                                        id="GrammaticalRangeAccuracy" class="jsx-2601907021 caps">Grammatical Range:
+                                        <!-- -->?</span></h3>
+                                <div class="jsx-2802957637 page-draft-text-analyzer__row">
+                                    <div class="jsx-3372755461 circle circle_color_none">?</div>Use a variety of complex
+                                    and
+                                    simple sentences
+                                </div>
+                                <div class="jsx-2802957637 page-draft-text-analyzer__row">
+                                    <div class="jsx-3372755461 circle circle_color_none">?</div>Check your writing for
+                                    errors
+                                </div>
+                            </div>
+
+                        </div>
+                                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+    </div>
+    <script>
+        $(function(){
+          $("#nav-placeholder").load("navbar.html");
+        });
+        </script>
+        <!--end of Navigation bar-->
+
+
+    <script>
+        const btn = document.querySelector('#AnalyseTheEssay');
+        const loaderWrapper = document.querySelector('#loader-wrapper');
+
+        btn.addEventListener('click', function () {
+            loaderWrapper.style.display = 'block';
+            setTimeout(function () {
+                loaderWrapper.style.display = 'none';
+            }, 3000);
+        });
+    </script>
+    <!-- Javascript-->
+    <script src="assets/js/core.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/question.js"></script>
+    <script src="assets/js/evaluation.js"></script>
+</body>
+
+</html>

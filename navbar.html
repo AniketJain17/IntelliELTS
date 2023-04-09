@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <style>
+
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    list-style: none;
+    margin: 0 10px;
+  }
+  
+  nav a {
+    color: #ff0000;
+    text-decoration: none;
+  }
+  
+  .auth {
+	font-size: 21px;
+    border: 1px solid #cc2020;
+    border-radius: 1px;
+    padding: 5px 10px;
+  }
+  
+  .hide {
+	font-size: 20px;
+    display: none;
+  }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="page"> -->
+        <!-- Page Header-->
+        <header class="section page-header">
+            <!-- RD Navbar-->
+            <div class="rd-navbar-wrap">
+                <nav class="rd-navbar rd-navbar-minimal" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+                    data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed"
+                    data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed"
+                    data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static"
+                    data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static"
+                    data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px"
+                    data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+                    <div class="rd-navbar-main-outer">
+                        <div class="rd-navbar-main">
+                            <!-- RD Navbar Panel-->
+                            <div class="rd-navbar-panel">
+                                <!-- RD Navbar Toggle-->
+                                <button class="rd-navbar-toggle"
+                                    data-rd-navbar-toggle="#rd-navbar-nav-wrap-1"><span></span></button>
+                                <!-- RD Navbar Brand--><a class="rd-navbar-brand" href="index.html"><img
+                                        src="assets/images/logo-default-176x28.png" alt="" width="176" height="28"
+                                        srcset="assets/images/logo-default-352x56.png 2x" /></a>
+                            </div>
+                            <div class="rd-navbar-main-element">
+                                <div class="rd-navbar-nav-wrap" id="rd-navbar-nav-wrap-1">
+                                    <!-- RD Navbar Nav-->
+                                    <ul class="rd-navbar-nav">
+                                        <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html">Home</a>
+                                        </li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="about-me.html">Price</a>
+                                        </li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link"
+                                                href="typography.html">Services</a>
+                                        </li>
+                                        <li class="rd-nav-item"><a class="rd-nav-link" href="Writing.html">Evaluate</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- RD Navbar Search -->
+                                <div class="rd-navbar-search">
+                                    <li ><a class="auth" href="#" id="sign-in-btn">Sign In</a></li>
+                                    <li class="auth hide" id="user-profile">
+                                      <a href="#">
+                                        <i class="fa fa-user"></i>
+                                        <span id="user-name"></span>
+                                      </a>
+                                    </li>
+                                    <!-- <li class="rd-nav-item"><a class="rd-nav-link" href="Login.html">Sign in</a>
+                                    </li> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+  <!-- Javascript-->
+  <script src="assets/js/core.min.js"></script>
+  <script src="assets/js/script.js"></script>
+
+  <script>
+
+const signInBtn = document.getElementById("sign-in-btn");
+const userProfile = document.getElementById("user-profile");
+const userName = document.getElementById("user-name");
+
+signInBtn.addEventListener("click", function () {
+  window.location.href = './Login.html'
+  // const name = prompt("Enter your name:");
+  if (name) {
+    signInBtn.classList.add("hide");
+    userProfile.classList.remove("hide");
+    userName.innerText = name;
+  }
+});
+
+
+</script>
+
+</body>
+
+</html>
