@@ -11,11 +11,20 @@ async function generateText(prompt) {
     "presence_penalty": 0
   }`;
 
+
+
+  const plainText1 = "Bearer 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";
+  const encodedText1 = btoa(plainText1);
+  
+  const encodedText = encodedText1 ;
+  const plainText = atob(encodedText);
+
+
   const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer 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',
+      'Authorization': plainText,
     },
     body: data,
   });
@@ -23,9 +32,11 @@ async function generateText(prompt) {
   const scoreRegex = /([0-9])/;
   const json = await response.json();
   const match = json.choices[0].text.match(scoreRegex);
+  console.log(match);
 
   if (match) {
     const score = parseFloat(match[1]);
+    console.log(score);
     if (score < 4.0) {
       return "3.5";
     } else if (score < 5.0) {
